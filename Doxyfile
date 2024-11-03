@@ -969,6 +969,7 @@ INPUT                  = docs/
 docs/数据筛选 \
 docs/C++
 docs/Github
+docs/程序调试
 
 # This tag can be used to specify the character encoding of the source files
 # that Doxygen parses. Internally Doxygen uses the UTF-8 encoding. Doxygen uses

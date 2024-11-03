@@ -102,11 +102,11 @@ $(function(){initNavTree('md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E
   <div class="headertitle"><div class="title">C++</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md7"></a></p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md27"></a></p>
+<h1><a class="anchor" id="autotoc_md28"></a>
 指针与引用</h1>
 <p>指针和引用是 C++ 编程语言中用于操作内存地址和对象的两种不同的工具。它们的区别在于如何访问对象、使用的语法、以及内存管理方式。在理解指针和引用时，理解它们各自的行为和使用场景非常重要。 </p>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 1. 指针（Pointer）</h2>
 <p>指针是一个变量，它存储着另一个变量或对象的内存地址。指针可以直接操作内存地址，可以对其进行指向不同对象的更改，支持指针运算等。</p>
 <p><b>指针的语法与用法：</b></p>
@@ -140,7 +140,7 @@ $(function(){initNavTree('md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E
 <div class="line"><span class="keywordtype">int</span> b = 20;</div>
 <div class="line">p = &amp;b;  <span class="comment">// 修改指针 p，使其指向变量 b</span></div>
 <div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;Value of b: &quot;</span> &lt;&lt; *p &lt;&lt; std::endl;  <span class="comment">// 解引用 p，输出 b 的值：20</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md30"></a>
 2. 引用（Reference）</h2>
 <p>引用是某个变量的别名（alias）。一旦引用被创建，它就不能指向其他对象，并且必须在声明时初始化。</p>
 <p><b>引用的语法与用法：</b></p>
@@ -169,7 +169,7 @@ $(function(){initNavTree('md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E
 <div class="line"><span class="keywordtype">int</span> b = 30;</div>
 <div class="line">ref = b;  <span class="comment">// 这是将 b 的值赋给 a，而不是让 ref 绑定到 b，ref 依然引用 a</span></div>
 <div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;Value of a: &quot;</span> &lt;&lt; a &lt;&lt; std::endl;  <span class="comment">// 输出 a 的值：30</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md31"></a>
 3. <code>*mEventTree</code> 和 <code>&amp;mEventTree</code> 的区别</h2>
 <p>考虑下面的例子：</p>
 <div class="fragment"><div class="line">TChain *mEventTree = <span class="keyword">new</span> TChain(<span class="stringliteral">&quot;treeName&quot;</span>);</div>
@@ -183,7 +183,7 @@ $(function(){initNavTree('md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E
 </div><!-- fragment --><p> 这里，<code>ppEventTree</code> 是一个指向 <code>TChain*</code> 的指针（即 <code>TChain**</code> 类型），它存储了 <code>mEventTree</code> 的地址，可以用来修改 <code>mEventTree</code> 本身的指向。</p>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="autotoc_md32"></a>
 4. 使用场景与选择</h2>
 <ul>
 <li>**指针的使用场景**：<ul>
@@ -199,7 +199,7 @@ $(function(){initNavTree('md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 5. 指针与引用的实际区别总结</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -215,7 +215,7 @@ $(function(){initNavTree('md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">常用于   </td><td class="markdownTableBodyNone">动态内存分配、数据结构（如链表）、操作对象指向性   </td><td class="markdownTableBodyNone">传递大对象、函数参数、避免拷贝和内存分配   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 6. 实例分析：<code>TChain</code> 的指针和引用</h2>
 <p>在 <code>ROOT</code> 中，通常使用指针操作 <code>TTree</code> 或 <code>TChain</code> 对象，因为这些对象通常涉及到大量数据，指针可以避免不必要的拷贝和内存分配。以下是指针和引用在 <code>ROOT</code> 中的实际用法对比：</p>
 <div class="fragment"><div class="line">TChain *mEventTree = <span class="keyword">new</span> TChain(<span class="stringliteral">&quot;hitsTree&quot;</span>);  <span class="comment">// 创建 TChain 对象，mEventTree 是指向 TChain 对象的指针</span></div>
@@ -236,7 +236,7 @@ $(function(){initNavTree('md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E
 <li><code>mEventTree</code> 是 <code>TChain*</code> 类型（指针），需要使用 <code>-&gt;</code> 访问成员函数。</li>
 <li><code>refEventTree</code> 是 <code>TChain</code> 类型的引用（<code>TChain&amp;</code>），可以直接使用 <code>.</code> 访问成员函数。</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md35"></a>
 总结</h2>
 <p>在实际应用中，指针和引用各有其优缺点，需要根据具体场景选择使用。如果你希望更多地了解指针和引用的具体用法或某些特定场景下的选择策略，可以告诉我，我会进一步帮助你解释和演示！ </p>
 </div></div><!-- contents -->

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['用法解释_0',['用法解释',['../md_docs_2_xE6_x95_xB0_xE6_x8D_xAE_xE7_xAD_x9B_xE9_x80_x89_2_xE6_x95_xB0_xE6_x8D_xAE_xE7_xAD_x9B_xE9_x80_x89.html#autotoc_md3',1,'']]]
+  ['历史_0',['2. 清理和压缩 Git 历史',['../md_docs_2Github_2_xE4_xBB_xA3_xE7_xA0_x81_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_xE6_x8C_x87_xE5_x8D_x97.html#autotoc_md50',1,'']]]
 ];

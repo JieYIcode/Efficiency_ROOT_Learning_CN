@@ -105,30 +105,32 @@ $(function(){initNavTree('md_docs_2_xE6_x95_xB0_xE6_x8D_xAE_xE7_xAD_x9B_xE9_x80_
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 ROOT::RDataFrame</h1>
-<p><code>ROOT::RDataFrame</code> 是 <code>ROOT</code> 数据处理框架（DataFrame）的现代接口，它类似于 Python 的 <code>pandas</code>，提供了一种更高效、更直观的数据处理方式。<code>RDataFrame</code> 支持数据筛选、累加、转换和可视化操作，并且能够通过多线程自动优化处理流程。 </p>
+<p><code>ROOT::RDataFrame</code> 是 <code>ROOT</code> 数据处理框架（DataFrame）的现代接口，它类似于 Python 的 <code>pandas</code>，提供了一种更高效、更直观的数据处理方式。<code>RDataFrame</code> 支持数据筛选、累加、转换和可视化操作，并且能够通过多线程自动优化处理流程。</p>
 <h2><a class="anchor" id="autotoc_md2"></a>
 基本简介</h2>
 <p><code>RDataFrame</code> 提供了一种面向数据处理的接口，通过链式操作可以轻松地对数据进行筛选、转换、分析和保存。与传统的 <code>TTree::Draw</code> 和 <code>TTree::Process</code> 不同，<code>RDataFrame</code> 能够更好地控制数据流，并且具有更高的灵活性和效率。</p>
+<dl class="section important"><dt>Important</dt><dd><br  />
+ 虽然 RDataFrame 类似于 pandas ，但是它目前并不包含 Groupby 方法, 想要给数据分组的时候需要手动进行，可使用<code>Foreach</code>。 <code>Foreach</code> 是 <code>ROOT RDataFrame</code> 中的一个方法，用于对所有符合条件的数据条目进行逐条处理和操作。</dd></dl>
 <h2><a class="anchor" id="autotoc_md3"></a>
 用法解释</h2>
 <p>以代码片段为例，逐行解析 <code>RDataFrame</code> 的用法。</p>
+<ol type="1">
+<li><p class="startli"><b>创建 <code>RDataFrame</code> 对象：</b></p>
 <div class="fragment"><div class="line">ROOT::RDataFrame df(*mEventTree);</div>
-</div><!-- fragment --><ol type="1">
-<li><p class="startli"><b>创建 <code>RDataFrame</code> 对象：</b></p><ul>
+</div><!-- fragment --><ul>
 <li>这行代码创建了一个 <code>RDataFrame</code> 实例 <code>df</code>，表示整个 <code>TTree</code> 或 <code>TChain</code>（<code>mEventTree</code>）。</li>
 <li><code>RDataFrame</code> 的构造函数接受 <code>TTree</code> 或 <code>TChain</code> 的指针或引用，并从中读取数据。它类似于 <code>pandas</code> 中的 <code>DataFrame</code>，用于表示一个完整的数据表。</li>
 </ul>
 <p class="startli"><b>注意：</b> <code>mEventTree</code> 是一个 <code>TTree</code> 或 <code>TChain</code> 对象，应该已经链接了所有的 <code>ROOT</code> 文件。</p>
 </li>
-</ol>
+<li><p class="startli"><b>数据筛选 (<code>Filter</code>)：</b></p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> filtered = df.Filter(</div>
 <div class="line">    [=](Short_t px, Short_t py, Int_t evt, Short_t lyr, Float_t x, Int_t fid) {</div>
 <div class="line">        <span class="keywordflow">return</span> px == padWaferX &amp;&amp; py == padWaferY &amp;&amp; evt == iEvent &amp;&amp; lyr == layer &amp;&amp; x &gt; 0 &amp;&amp; fid == fileIdentifier;</div>
 <div class="line">    },</div>
 <div class="line">    {<span class="stringliteral">&quot;padWaferX&quot;</span>, <span class="stringliteral">&quot;padWaferY_1&quot;</span>, <span class="stringliteral">&quot;iEvent&quot;</span>, <span class="stringliteral">&quot;layer&quot;</span>, <span class="stringliteral">&quot;x&quot;</span>, <span class="stringliteral">&quot;fileIdentifier&quot;</span>} <span class="comment">// 使用的变量名称应与树中分支名称一致</span></div>
 <div class="line">);</div>
-</div><!-- fragment --><ol type="1">
-<li><b>数据筛选 (<code>Filter</code>)：</b><ul>
+</div><!-- fragment --><ul>
 <li><code>Filter</code> 是 <code>RDataFrame</code> 中用于筛选数据的函数，它会根据用户定义的条件从 <code>df</code> 中筛选出符合条件的条目，返回一个新的 <code>RDataFrame</code> 对象 <code>filtered</code>。</li>
 <li><code>Filter</code> 函数的参数：<ul>
 <li>第一个参数是一个 Lambda 函数 <code>[=](Short_t px, Short_t py, Int_t evt, Short_t lyr, Float_t x, Int_t fid)</code>，用于判断每个条目是否符合筛选条件。</li>
@@ -142,19 +144,17 @@ ROOT::RDataFrame</h1>
 </li>
 </ul>
 </li>
-</ol>
+<li><p class="startli"><b>计算能量总和 (<code>Sum</code>)：</b></p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> totalEnergy = filtered.Sum&lt;<span class="keywordtype">float</span>&gt;(<span class="stringliteral">&quot;depEn&quot;</span>);</div>
-</div><!-- fragment --><ol type="1">
-<li><b>计算能量总和 (<code>Sum</code>)：</b><ul>
+</div><!-- fragment --><ul>
 <li><code>Sum</code> 是 <code>RDataFrame</code> 中的一个聚合函数，用于计算某个分支（列）的累加值。</li>
 <li><code>filtered.Sum&lt;float&gt;("depEn")</code> 表示计算 <code>filtered</code> 中所有符合条件条目中 <code>depEn</code> 分支（表示能量）的总和，并返回一个指向累加结果的指针 <code>totalEnergy</code>。</li>
 <li><code>Sum</code> 的模板参数 <code>&lt;float&gt;</code> 表示 <code>depEn</code> 分支的类型为 <code>float</code>，与 <code>TTree</code> 中的 <code>depEn</code> 类型保持一致。</li>
 </ul>
 </li>
-</ol>
+<li><p class="startli"><b>获取和输出总能量：</b></p>
 <div class="fragment"><div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;Total deposited energy: &quot;</span> &lt;&lt; *totalEnergy / 1e9 &lt;&lt; <span class="stringliteral">&quot; GeV&quot;</span> &lt;&lt; std::endl;</div>
-</div><!-- fragment --><ol type="1">
-<li><b>获取和输出总能量：</b><ul>
+</div><!-- fragment --><ul>
 <li><code>totalEnergy</code> 是一个 <code>RResultPtr</code>（类似于指针），它指向 <code>Sum</code> 计算的结果。</li>
 <li><code>*totalEnergy</code> 解引用 <code>RResultPtr</code>，获得 <code>depEn</code> 的累加值。</li>
 <li>输出能量总和，并将其单位从 <code>eV</code> 转换为 <code>GeV</code>（1 GeV = 1e9 eV）。</li>
@@ -163,7 +163,7 @@ ROOT::RDataFrame</h1>
 </ol>
 <h2><a class="anchor" id="autotoc_md4"></a>
 常用操作</h2>
-<p>以下是 <code>RDataFrame</code> 的一些常用操作，帮助你更好地理解其用法：</p>
+<p>以下是 <code>RDataFrame</code> 的一些常用操作：</p>
 <ol type="1">
 <li>**创建 RDataFrame 对象**： <div class="fragment"><div class="line">ROOT::RDataFrame df(<span class="stringliteral">&quot;treeName&quot;</span>, <span class="stringliteral">&quot;filename.root&quot;</span>);</div>
 </div><!-- fragment --><ul>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['指针与引用的实际区别总结_0',['5. 指针与引用的实际区别总结',['../md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E_xE5_xBC_x95_xE7_x94_xA8.html#autotoc_md13',1,'']]],
-  ['指针与引用_1',['指针与引用',['../md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E_xE5_xBC_x95_xE7_x94_xA8.html#autotoc_md8',1,'']]],
-  ['指针（pointer）_2',['1. 指针（Pointer）',['../md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E_xE5_xBC_x95_xE7_x94_xA8.html#autotoc_md9',1,'']]]
+  ['分支_0',['分支',['../md_docs_2Github_2_xE4_xBB_xA3_xE7_xA0_x81_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_xE6_x8C_x87_xE5_x8D_x97.html#autotoc_md42',1,'1. 删除本地 &lt;tt&gt;master&lt;/tt&gt; 分支'],['../md_docs_2Github_2_xE4_xBB_xA3_xE7_xA0_x81_xE5_xBA_x93_xE6_x93_x8D_xE4_xBD_x9C_xE6_x8C_x87_xE5_x8D_x97.html#autotoc_md43',1,'2. 删除远程 &lt;tt&gt;master&lt;/tt&gt; 分支']]],
+  ['分析结果_1',['6. 分析结果',['../md_docs_2_xE7_xA8_x8B_xE5_xBA_x8F_xE8_xB0_x83_xE8_xAF_x95_2_xE7_xA8_x8B_xE5_xBA_x8F_xE8_xB0_x83_xE8_xAF_x95.html#autotoc_md26',1,'']]],
+  ['分析输出：_2',['4. 分析输出：',['../md_docs_2_xE7_xA8_x8B_xE5_xBA_x8F_xE8_xB0_x83_xE8_xAF_x95_2_xE7_xA8_x8B_xE5_xBA_x8F_xE8_xB0_x83_xE8_xAF_x95.html#autotoc_md12',1,'']]]
 ];

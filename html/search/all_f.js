@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['引用（reference）_0',['2. 引用（Reference）',['../md_docs_2C_09_09_2_xE6_x8C_x87_xE9_x92_x88_xE4_xB8_x8E_xE5_xBC_x95_xE7_x94_xA8.html#autotoc_md10',1,'']]]
+  ['valgrind（如果还未安装）：_0',['1. 安装 Valgrind（如果还未安装）：',['../md_docs_2_xE7_xA8_x8B_xE5_xBA_x8F_xE8_xB0_x83_xE8_xAF_x95_2_xE7_xA8_x8B_xE5_xBA_x8F_xE8_xB0_x83_xE8_xAF_x95.html#autotoc_md9',1,'']]],
+  ['valgrind：_1',['3. 运行 Valgrind：',['../md_docs_2_xE7_xA8_x8B_xE5_xBA_x8F_xE8_xB0_x83_xE8_xAF_x95_2_xE7_xA8_x8B_xE5_xBA_x8F_xE8_xB0_x83_xE8_xAF_x95.html#autotoc_md11',1,'']]],
+  ['valgrind_2',['Valgrind',['../md_docs_2_xE7_xA8_x8B_xE5_xBA_x8F_xE8_xB0_x83_xE8_xAF_x95_2_xE7_xA8_x8B_xE5_xBA_x8F_xE8_xB0_x83_xE8_xAF_x95.html#autotoc_md8',1,'']]]
 ];
